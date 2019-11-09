@@ -14,7 +14,8 @@ var webpackConfig = {
     collapsible_tree: './src/examples/collapsible_tree/collapsible_tree.ts',
     chord: './src/examples/chord/chord.ts',
     treemap: './src/examples/treemap/treemap.ts',
-    subtotal: './src/examples/subtotal/subtotal.ts'
+    subtotal: './src/examples/subtotal/subtotal.ts',
+    raise_sankey: './src/examples/raise_sankey/raise_sankey.ts'
   },
   output: {
     filename: "[name].js",

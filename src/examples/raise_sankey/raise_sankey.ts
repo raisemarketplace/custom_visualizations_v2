@@ -169,14 +169,11 @@ const vis: Sankey = {
       .on('mouseenter', function (this: any, d: Cell, r: Row) {
         svg.selectAll('.link')
           .style('opacity', function (p: any, pr: Row) { 
-            console.log("p row", pr)
-            if (p.index === d.index) return 0.7 
+            if (pr === r) return 0.7 
             return 0.05
           })
         d3.select(this)
           .style('opacity', function (p: any ) {
-            console.log("cell", d)
-            console.log("row", r)
             return 0.7
           })
         svg.selectAll('.node')

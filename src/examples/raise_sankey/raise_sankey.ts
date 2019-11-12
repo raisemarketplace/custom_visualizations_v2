@@ -168,9 +168,9 @@ const vis: Sankey = {
       .attr('stroke-width', function (d: Cell) { return Math.max(1, d.width) })
       .on('mouseenter', function (this: any, d: Cell, r: Row) {
         svg.selectAll('.link')
-          .style('opacity', function (p: any, pr: Row) {
-            console.log(pr, r) 
-            if (pr === r) return 0.7 
+          .style('opacity', function (p: any, q: any, r: any, s: any, t: any) {
+            console.log(p, q, r, s, t) 
+            if (p === r) return 0.7 
             return 0.05
           })
         d3.select(this)

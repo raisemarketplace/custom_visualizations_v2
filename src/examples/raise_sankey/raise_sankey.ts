@@ -174,7 +174,7 @@ const vis: Sankey = {
           })
         d3.select(this)
           .style('opacity', function (p: any ) {
-            console.log(d.name)
+            console.log(d)
             return 0.7
           })
         svg.selectAll('.node')

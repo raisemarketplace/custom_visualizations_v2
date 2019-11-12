@@ -114,7 +114,7 @@ const vis: Sankey = {
 
     const nodes = d3.set()
 
-    data.forEach(function (d: any) {
+    data.forEach(function (d: any, idx: any) {
       console.log(d)
       // variable number of dimensions
       const path: any[] = []
@@ -140,7 +140,8 @@ const vis: Sankey = {
           'drillLinks': drillLinks,
           'source': source,
           'target': target,
-          'value': +d[measure.name].value
+          'value': +d[measure.name].value,
+          'row': idx
         })
       })
     })
@@ -167,10 +168,11 @@ const vis: Sankey = {
       .attr('d', function (d: any) { return 'M' + -10 + ',' + -10 + sankeyLinkHorizontal()(d) })
       .style('opacity', 0.4)
       .attr('stroke-width', function (d: Cell) { return Math.max(1, d.width) })
-      .on('mouseenter', function (this: any, d: Cell, dRow: Row) {
+      .on('mouseenter', function (this: any, d: Cell) {
         svg.selectAll('.link')
-          .style('opacity', function (p: any, pRow: any) {
-            if (pRow === dRow) return 0.7 
+          .style('opacity', function (p: any) {
+            console.log(p.row, d.row)
+            if (p.row === d.row) return 0.7 
             return 0.05
           })
         d3.select(this)

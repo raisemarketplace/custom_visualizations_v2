@@ -115,7 +115,6 @@ const vis: Sankey = {
     const nodes = d3.set()
 
     data.forEach(function (d: any, idx: any) {
-      console.log(d)
       // variable number of dimensions
       const path: any[] = []
       for (const dim of dimensions) {
@@ -171,7 +170,6 @@ const vis: Sankey = {
       .on('mouseenter', function (this: any, d: Cell) {
         svg.selectAll('.link')
           .style('opacity', function (p: any) {
-            console.log(p.row, d.row)
             if (p.row === d.row) return 0.7 
             return 0.05
           })

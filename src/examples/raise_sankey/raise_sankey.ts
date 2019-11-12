@@ -166,15 +166,16 @@ const vis: Sankey = {
       .attr('d', function (d: any) { return 'M' + -10 + ',' + -10 + sankeyLinkHorizontal()(d) })
       .style('opacity', 0.4)
       .attr('stroke-width', function (d: Cell) { return Math.max(1, d.width) })
-      .on('mouseenter', function (this: any, d: Cell) {
+      .on('mouseenter', function (this: any, d: Cell, r: Row) {
         svg.selectAll('.link')
           .style('opacity', function (p: any) { 
-            if (p.name === d.name) return 0.7 
+            if (p.index === d.index) return 0.7 
             return 0.05
           })
         d3.select(this)
           .style('opacity', function (p: any ) {
-            console.log(d)
+            console.log("cell", d)
+            console.log("row", r)
             return 0.7
           })
         svg.selectAll('.node')
